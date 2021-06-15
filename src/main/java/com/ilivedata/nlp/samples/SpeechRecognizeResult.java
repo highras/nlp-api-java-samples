@@ -19,6 +19,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class SpeechRecognizeResult {
 
@@ -59,7 +60,10 @@ public class SpeechRecognizeResult {
     }
     
     private String request(String body, String signature, String timeStamp) throws IOException {
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = new OkHttpClient.Builder()
+                .writeTimeout(30, TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
+                .build();
         Request request = new Request.Builder()
                 .url(endpointURL)
                 .post(RequestBody.create(body, MediaType.get("application/json; charset=utf-8")))

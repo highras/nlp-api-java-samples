@@ -101,6 +101,7 @@ public class Translate {
         Builder builder = new FormBody.Builder();
         
         for (String key : parameters.keySet()) {
+            // 此处builder会自动对value进行url encoding, 如果使用其他Http Client需要注意手动对value编码
             builder.add(key, parameters.get(key));
         }
         Request request = new Request.Builder()

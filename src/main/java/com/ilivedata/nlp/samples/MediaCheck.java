@@ -1,3 +1,4 @@
+package com.ilivedata.nlp.samples;
 
 import java.io.IOException;
 import java.math.BigInteger;
@@ -14,7 +15,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class MergeCheck {
+public class MediaCheck {
 
     private String companyID = "123456";
     private String secretKey = "xxxxxxxxxxxxxxxxxxxxxxx";
@@ -72,12 +73,12 @@ public class MergeCheck {
     }
 
     public static void main(String[] args) throws IOException {
-        MergeCheck mergeCheck = new MergeCheck();
+        MediaCheck mediaCheck = new MediaCheck();
         List<String> imageList = new ArrayList<>();
         imageList.add("https://test.com/1.jpg");
         imageList.add("https://test.com/2.jpg");
 
-        String result = mergeCheck.check("啊啊啊哦哦fuck哦哈哈哈", imageList, "12345678");
+        String result = mediaCheck.check("啊啊啊哦哦fuck哦哈哈哈", imageList, "12345678");
         System.out.println(result);
     }
 }
